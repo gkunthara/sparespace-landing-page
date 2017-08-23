@@ -6,16 +6,17 @@ export class Logo extends React.Component {
     render(){
         const logoStyle = {
             color: 'red',
-            display: 'flex',
-            fontStyle: 'bold',
+            fontStyle: '700',
             fontSize: '2em',
-            marginLeft: 100
+            marginTop: 25
 
         };
 
         return(
-            <div>
-                <h1 style={logoStyle}>sparespace</h1>
+            <div className="container">
+                <nav className="navbar">
+                    <a className="navbar-brand" href="#" style={logoStyle}>sparespace</a>
+                </nav>
             </div>
         )
     }

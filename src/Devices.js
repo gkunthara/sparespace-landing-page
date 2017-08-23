@@ -7,18 +7,14 @@ export class Devices extends React.Component {
     render() {
 
         const deviceStyle = {
-            position: 'relative',
-            left: '200',
-            bottom: '250',
-            width: '55%',
-            height: '55%'
+            width: '100%',
+            height: '100%',
+            //border: 'solid',
         };
 
 
         return (
-            <div>
-                <img style={deviceStyle} alt="devices" src='https://i.imgur.com/vqYFCfC.png'/>
-            </div>
+            <img className="img-responsive" style={deviceStyle} alt="devices" src='https://i.imgur.com/5LPKfCM.png' />
         )
     }
 }
