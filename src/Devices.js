@@ -9,7 +9,7 @@ export class Devices extends React.Component {
         const deviceStyle = {
             width: '100%',
             height: '100%',
-            //border: 'solid',
+
         };
 
 

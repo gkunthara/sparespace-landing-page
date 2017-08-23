@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+
+    p{
+       font-size: 1.0em !important;
+    }
+
+}
+
+
+@media (max-width: 984px) {
+
+    .header{
+        margin-top: 50px !important;
+    }
+
+}

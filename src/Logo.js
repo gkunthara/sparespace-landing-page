@@ -6,7 +6,6 @@ export class Logo extends React.Component {
     render(){
         const logoStyle = {
             color: 'red',
-            fontStyle: '700',
             fontSize: '2em',
             marginTop: 25
 
@@ -15,7 +14,7 @@ export class Logo extends React.Component {
         return(
             <div className="container">
                 <nav className="navbar">
-                    <a className="navbar-brand" href="#" style={logoStyle}>sparespace</a>
+                    <a className="navbar-brand" href="#" style={logoStyle}><b>sparespace</b></a>
                 </nav>
             </div>
         )

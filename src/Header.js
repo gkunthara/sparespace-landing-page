@@ -1,30 +1,60 @@
 import React from 'react';
 import {Devices} from "./Devices";
 import {Logo} from "./Logo";
-
+import './media.css';
 
 
 export class Header extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            hover: false
+        }
+        this.handleHover = this.handleHover.bind(this)
+    }
+
+    handleHover() {
+
+        this.setState({
+            hover: !this.state.hover
+        })
+    }
+
+
     render(){
 
         const headerStyle = {
-            fontStyle: 'bold',
             fontSize: '2.5em',
             paddingTop: 100
 
         }
-        const buttonStyle = {
-            color: 'red',
-            backgroundColor: 'white',
-            //border: 'solid',
+        var buttonStyle = {
+
             borderRadius: '5px',
-            borderColor: 'red',
-            marginTop: 25
+
         }
 
         const divStyle = {
-            //border: 'solid',
+
             marginTop: 100
+        }
+
+        if(this.state.hover){
+            buttonStyle = {
+                marginTop: 25,
+                backgroundColor: 'red',
+                color: 'white'
+            }
+        }
+        else{
+
+            buttonStyle = {
+                marginTop: 25,
+                backgroundColor: 'white',
+                borderColor: 'red',
+                color: 'red'
+            }
         }
 
         return(
@@ -32,9 +62,9 @@ export class Header extends React.Component {
                 <Logo/>
             <div className="container">
                 <div className="row">
-                    <div className="col-sm-4 text-center" style={divStyle}>
-                        <h1 style={headerStyle}> Find cheaper storage for your mattress </h1>
-                        <button style={buttonStyle} type="button" className="btn btn-outline">Learn More</button>
+                    <div className="col-sm-4 text-center header" style={divStyle}>
+                        <h1 style={headerStyle}> <b> Find cheaper storage for your mattress </b> </h1>
+                        <button style={buttonStyle} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} type="button" className="btn btn-outline">Learn More</button>
                     </div>
                     <div className="col-sm-8" style={divStyle}>
                         <Devices/>
@@ -44,4 +74,5 @@ export class Header extends React.Component {
             </div>
         )
     }
+
 }
