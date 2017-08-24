@@ -14,7 +14,7 @@ export class Logo extends React.Component {
         return(
             <div className="container">
                 <nav className="navbar">
-                    <a className="navbar-brand" href="#" style={logoStyle}><b>sparespace</b></a>
+                    <a className="navbar-brand" style={logoStyle}><b>sparespace</b></a>
                 </nav>
             </div>
         )

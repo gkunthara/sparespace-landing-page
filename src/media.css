@@ -1,7 +1,7 @@
 @media (max-width: 768px) {
 
     p{
-       font-size: 1.0em !important;
+       font-size: 1.1em !important;
     }
 
 }
@@ -13,4 +13,24 @@
         margin-top: 50px !important;
     }
 
+
+
+}
+
+@media (max-width: 426px) {
+
+    .subHeader{
+        width: 100% !important;
+    }
+
+}
+
+.btn:focus,.btn:active {
+    outline: none !important;
+}
+
+
+.subHeader{
+    width: 85%;
+    margin-top: 50px;
 }

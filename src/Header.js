@@ -2,9 +2,14 @@ import React from 'react';
 import {Devices} from "./Devices";
 import {Logo} from "./Logo";
 import './media.css';
+import Scroll from 'react-scroll';
 
+
+var scroll = Scroll.animateScroll;
 
 export class Header extends React.Component {
+
+
 
     constructor(props) {
         super(props)
@@ -13,6 +18,12 @@ export class Header extends React.Component {
         }
         this.handleHover = this.handleHover.bind(this)
     }
+
+    scrollToBottom() {
+        scroll.scrollToBottom();
+    }
+
+
 
     handleHover() {
 
@@ -63,8 +74,8 @@ export class Header extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4 text-center header" style={divStyle}>
-                        <h1 style={headerStyle}> <b> Find cheaper storage for your mattress </b> </h1>
-                        <button style={buttonStyle} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} type="button" className="btn btn-outline">Learn More</button>
+                        <h1 style={headerStyle}> <b> Find cheaper storage for your belongings </b> </h1>
+                        <button onClick={this.scrollToBottom} style={buttonStyle} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} type="button" className="btn btn-outline">Learn More</button>
                     </div>
                     <div className="col-sm-8" style={divStyle}>
                         <Devices/>
