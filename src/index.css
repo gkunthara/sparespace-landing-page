@@ -5,7 +5,29 @@ body {
 
 }
 
-#mc_embed_signup{
-    background:#FFF; clear:left; font:20px Source Sans Pro,Arial,sans-serif;
+.email-signup{
     margin-top: 50px;
+}
+
+.submit-button:hover {
+    color: blue;
+    background-color: blue;
+}
+
+input[type="submit"]:hover {
+    border: 1px solid #999;
+    color: #000;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.label-header{
+    font-size: 17px;
+}
+
+.email-button{
+    margin-top: 10px;
 }
