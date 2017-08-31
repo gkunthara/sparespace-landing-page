@@ -3,33 +3,55 @@ import {Devices} from "./Devices";
 import {Logo} from "./Logo";
 import './media.css';
 import Scroll from 'react-scroll';
+import Typing from 'react-typing-animation'
 
 // for scrolling
 var scroll = Scroll.animateScroll;
 //list of item to show on homepage
-const items = ['mattress','loft kit', 'skis', 'boxes', 'clothes'];
-var count = 0;
-
+const items = ['mattress','loft kit', 'skis', 'boxes', 'clothes', 'furniture'];
 export class Header extends React.Component {
+
+    // componentWillMount() {
+    //     this.setState({
+    //         currentItem: items[0],
+    //         count: 0,
+    //     })
+    // }
 
 
     componentDidMount() {
-        const intervalId = setInterval(this.timer, 3000);
-        this.setState({intervalId: intervalId});
+
+        //update item every 3 seconds
+
+        setInterval(() => {
+
+            this.setState({
+                count: this.state.count + 1
+            })
+            if(this.state.count < items.length) {
+                this.setState({
+
+                    currentItem: items[this.state.count]
+                })
+            }
+        }, 3000);
+
     }
-    componentWillUnmount() {
-        clearInterval(this.state.intervalId)
-    }
+
+    // componentWillUnmount() {
+    //     clearInterval(this.state.intervalId);
+    // }
 
 
     constructor(props) {
         super(props)
         this.state = {
             hover: false,
-            currentItem: items[count]
+            currentItem: items[0],
+            count: 0
         }
         this.handleHover = this.handleHover.bind(this)
-        this.timer = this.timer.bind(this)
+        //this.timer = this.timer.bind(this)
     }
 
     scrollToBottom() {
@@ -48,16 +70,16 @@ export class Header extends React.Component {
 
     //after 3 seconds, change item to showcase, then stop after
     //all items are done showing
-    timer(){
-        count += 1
-        if(count < 4) {
-            this.setState({
-                currentItem: items[count]
-            })
-        }
-    }
-
-
+    // timer(){
+    //     this.setState({
+    //         count: this.state.count + 1
+    //     })
+    //     if(this.state.count < items.length) {
+    //         this.setState({
+    //             currentItem: items[this.state.count]
+    //         })
+    //     }
+    // }
 
 
     render(){
@@ -96,13 +118,14 @@ export class Header extends React.Component {
             }
         }
 
+
         return(
             <div>
                 <Logo/>
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4 text-center header" style={divStyle}>
-                        <h1 style={headerStyle}> <b> Find cheaper storage for your {this.state.currentItem} </b> </h1>
+                        <h1 style={headerStyle}> <b> Find cheaper storage for your <Typing> <Typing.Delay ms={1000}/> {this.state.currentItem} <Typing.Backspace count = {20} delay={2000}/> </Typing>  </b> </h1>
                         <button onClick={this.scrollToBottom} style={buttonStyle} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} type="button" className="btn btn-outline">Learn More</button>
                     </div>
                     <div className="col-sm-8" style={divStyle}>
