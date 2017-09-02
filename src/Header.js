@@ -3,33 +3,42 @@ import {Devices} from "./Devices";
 import {Logo} from "./Logo";
 import './media.css';
 import Scroll from 'react-scroll';
+import Typing from 'react-typing-animation';
+import TypistCycle from "./TypistCycle";
 
 // for scrolling
 var scroll = Scroll.animateScroll;
-//list of item to show on homepage
-const items = ['mattress','loft kit', 'skis', 'boxes', 'clothes'];
-var count = 0;
 
 export class Header extends React.Component {
 
 
-    componentDidMount() {
-        const intervalId = setInterval(this.timer, 3000);
-        this.setState({intervalId: intervalId});
-    }
-    componentWillUnmount() {
-        clearInterval(this.state.intervalId)
-    }
+    // componentDidMount() {
+    //
+    //     //update item every 3 seconds
+    //
+    //     setInterval(() => {
+    //
+    //         this.setState({
+    //             count: this.state.count + 1
+    //         })
+    //         if(this.state.count < items.length) {
+    //             this.setState({
+    //
+    //                 currentItem: items[this.state.count]
+    //             })
+    //         }
+    //     }, 3000);
+    //
+    // }
+
 
 
     constructor(props) {
         super(props)
         this.state = {
             hover: false,
-            currentItem: items[count]
         }
         this.handleHover = this.handleHover.bind(this)
-        this.timer = this.timer.bind(this)
     }
 
     scrollToBottom() {
@@ -46,18 +55,6 @@ export class Header extends React.Component {
         })
     }
 
-    //after 3 seconds, change item to showcase, then stop after
-    //all items are done showing
-    timer(){
-        count += 1
-        if(count < 4) {
-            this.setState({
-                currentItem: items[count]
-            })
-        }
-    }
-
-
 
 
     render(){
@@ -68,7 +65,7 @@ export class Header extends React.Component {
             paddingTop: 100
 
         }
-        var buttonStyle = {
+        let buttonStyle = {
 
             borderRadius: '5px',
 
@@ -78,6 +75,7 @@ export class Header extends React.Component {
 
             marginTop: 100
         }
+        
 
         if(this.state.hover){
             buttonStyle = {
@@ -96,13 +94,31 @@ export class Header extends React.Component {
             }
         }
 
+        const typeAnimation = (this.state.currentItem) ? (
+            <Typing> <Typing.Delay ms={100}/> {this.state.currentItem} <Typing.Backspace count = {20} delay={500}/> </Typing>
+    ) :  '';
+
+        const typing = <TypistCycle avgTypingDelay={100} startDelay={1000}
+            content={[
+                'mattress',
+                'loft kit',
+                'couch',
+                'skis',
+                'furniture',
+                'boxes'
+            ]}
+            numberOfCycles={-1} // loop indefinitely
+            segmentDelay={2} // stop for 0.8s at end line
+        />;
+
+
         return(
             <div>
                 <Logo/>
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4 text-center header" style={divStyle}>
-                        <h1 style={headerStyle}> <b> Find cheaper storage for your {this.state.currentItem} </b> </h1>
+                        <h1 style={headerStyle}> <b> Find cheaper storage for your {typing} </b> </h1>
                         <button onClick={this.scrollToBottom} style={buttonStyle} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} type="button" className="btn btn-outline">Learn More</button>
                     </div>
                     <div className="col-sm-8" style={divStyle}>

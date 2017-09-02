@@ -5,7 +5,10 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.11"
+    "react-scripts": "1.0.11",
+    "react-scroll": "^1.5.4",
+    "react-typing-animation": "^1.1.5",
+    "react-typist": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
