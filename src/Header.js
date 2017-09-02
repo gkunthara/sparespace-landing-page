@@ -75,10 +75,7 @@ export class Header extends React.Component {
 
             marginTop: 100
         }
-
-        const typingColor = {
-            color: 'red'
-        };
+        
 
         if(this.state.hover){
             buttonStyle = {
@@ -121,7 +118,7 @@ export class Header extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-4 text-center header" style={divStyle}>
-                        <h1 style={headerStyle}> <b> Find cheaper storage for your</b> <b style={typingColor}>  {typing} </b> </h1>
+                        <h1 style={headerStyle}> <b> Find cheaper storage for your {typing} </b> </h1>
                         <button onClick={this.scrollToBottom} style={buttonStyle} onMouseEnter={this.handleHover} onMouseLeave={this.handleHover} type="button" className="btn btn-outline">Learn More</button>
                     </div>
                     <div className="col-sm-8" style={divStyle}>
